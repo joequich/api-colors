@@ -1,7 +1,7 @@
 import express from 'express';
+import env from './common/env.config';
 
 const app = express();
-const PORT = 3000;
 
 app.use(express.json());
 
@@ -10,6 +10,6 @@ app.get('/', (_req, res) => {
     res.send('Hellow there')
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(env.PORT, () => {
+    console.log(`Server running in ${env.NODE_ENV} mode on port ${env.PORT}`);
 })
