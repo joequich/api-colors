@@ -7,7 +7,7 @@
     "node": "14.18.1"
   },
   "scripts": {
-    "tsc": "tsc",
+    "build": "tsc",
     "dev": "ts-node-dev src/app.ts",
     "lint": "eslint --ext .ts .",
     "start": "node build/app.js",
