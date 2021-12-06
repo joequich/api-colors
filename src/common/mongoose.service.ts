@@ -5,8 +5,7 @@ const strUrlMongo = `mongodb+srv://${env.DB_USER}:${env.DB_PASS}@${env.DB_HOST}/
 
 const options = {
     autoIndex: false, // default is true is great for development, but not ideal for production
-    poolSize: 10, // default is 5, maintain up to 10 connections
-    bufferMaxEntries: 0, // if not connected, return errors inmediately rather than waiting for reconnect
+    maxPoolSize: 10, // default is 5, maintain up to 10 connections
     useNewUrlParser: true,
     useUnifiedTopology: true, 
 }

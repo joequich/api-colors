@@ -2,6 +2,7 @@ import mongoose from './common/mongoose.service';
 import { IColor } from './interfaces/colors.interface';
 
 const ColorSchema = new mongoose.Schema<IColor>({
+    id: { type: Number, required: [true, 'Id is required'], unique: true, dropDups: true },
     name: { type: String, required: [true, 'Name is required'] },
     year: { type: Number, required: [true, 'Year is required'] },
     color: { type: String, required: [true, 'Color is required'] },
@@ -11,6 +12,7 @@ const ColorSchema = new mongoose.Schema<IColor>({
 ColorSchema.methods.toJSON = function() {
     const color = this.toObject();
     delete color.__v;
+    delete color._id;
     return color;
 };
 
