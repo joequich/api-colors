@@ -10,7 +10,8 @@
     "tsc": "tsc",
     "dev": "ts-node-dev src/app.ts",
     "lint": "eslint --ext .ts .",
-    "start": "tsc && node build/app.js"
+    "start": "node build/app.js",
+    "postinstall": "yarn build"
   },
   "author": "Joseph Quispe",
   "license": "MIT",
