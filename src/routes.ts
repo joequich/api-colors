@@ -2,10 +2,12 @@ import { Router } from 'express';
 import { check } from 'express-validator';
 import ColorsController from './colors.controller';
 import ColorsService from './colors.service';
+import ColorsMiddleware from './colors.middleware';
 import { validateFields } from './common/validateFields.middleware';
 
 const route = Router();
 const colorsService = new ColorsService();
+const colorsMiddleware = new ColorsMiddleware(colorsService);
 
 const colorsController = new ColorsController(colorsService);
 
@@ -21,5 +23,6 @@ export default (app: Router) => {
         check('color', 'Color is required').not().isEmpty(),
         check('pantone_value', 'Pantone is required').not().isEmpty(),
         validateFields,
+        colorsMiddleware.validateIfColorIdExist,
     ], colorsController.createColor);
 };
