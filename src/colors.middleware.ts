@@ -9,8 +9,7 @@ export default class ColorsMiddleware {
         const existColor = await this.colorService.readById(id);
 
         if(existColor) {
-            return res.status(400).send({
-                status: 400,
+            return res.status(409).send({
                 message: `Color id ${id} already exists`
             });
         } else {

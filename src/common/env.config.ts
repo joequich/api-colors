@@ -1,7 +1,5 @@
 import dotenv from 'dotenv';
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-
 dotenv.config();
 
 export default {
@@ -10,8 +8,5 @@ export default {
     DB_HOST: process.env.MONGODB_HOST,
     DB_USER: process.env.MONGODB_USER,
     DB_PASS: process.env.MONGODB_PASS,
-    DB_NAME: process.env.MONGODB_DATABASE,
-    API: {
-        prefix: '/api'
-    },
+    DB_NAME: process.env.NODE_ENV === 'test' ? process.env.MONGODB_DATABASE_TEST : process.env.MONGODB_DATABASE,
 }

@@ -14,8 +14,13 @@ const colorsController = new ColorsController(colorsService);
 export default (app: Router) => {
     app.use('/colores', route);
 
+    // List all colors METHOD= GET, URL= http://localhost:3000/colores
     route.get('/', colorsController.listColors);
+
+    // Find a color METHOD= GET, URL= http://localhost:3000/colores/1
     route.get('/:id', colorsController.getColorById);
+
+    // Create a color METHOD= POST, URL= http://localhost:3000/colores/
     route.post('/', [
         check('id', 'Id is required').not().isEmpty(),
         check('name', 'Name is required').not().isEmpty(),

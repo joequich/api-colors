@@ -19,3 +19,5 @@ node_modules/
 
 # MacOSx
 .DS_Store
+
+coverage

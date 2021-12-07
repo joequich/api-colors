@@ -13,21 +13,17 @@ export default class ColorsController {
             const colors = await this.colorService.list(page, limit);
             return res
                 .status(200)
-                .json({
-                    status: 200,
-                    result: colors,
-                    message: 'Succesfully Colors List',
-                });
+                .json(colors);
         } catch (err) {
             if (err instanceof Error) {
                 return res
                     .status(400)
-                    .json({ status: 400, message: err.message });
+                    .json({ message: err.message });
             } else {
                 console.log(err);
                 return res
                     .status(500)
-                    .json({ status: 500, message: 'Unknow failure' });
+                    .json({ message: 'Unknow failure' });
             }
         }
     };
@@ -38,21 +34,17 @@ export default class ColorsController {
             const color = await this.colorService.readById(id);
             return res
                 .status(200)
-                .json({
-                    status: 200,
-                    result: color,
-                    message: 'Succesfully Color List',
-                });
+                .json(color);
         } catch (err) {
             if (err instanceof Error) {
                 return res
                     .status(400)
-                    .json({ status: 400, message: err.message });
+                    .json({ message: err.message });
             } else {
                 console.log(err);
                 return res
                     .status(500)
-                    .json({ status: 500, message: 'Unknow failure' });
+                    .json({ message: 'Unknow failure' });
             }
         }
     };
@@ -62,21 +54,17 @@ export default class ColorsController {
             const color = await this.colorService.create(req.body);
             return res
                 .status(201)
-                .json({
-                    status: 201,
-                    color,
-                    message: 'Succesfully Color Saved',
-                });
+                .json(color);
         } catch (err) {
             if (err instanceof Error) {
                 return res
-                    .status(409)
-                    .json({ status: 409, message: err.message });
+                    .status(400)
+                    .json({ message: err.message });
             } else {
                 console.log(err);
                 return res
                     .status(500)
-                    .json({ status: 500, message: 'Unknow failure' });
+                    .json({ message: 'Unknow failure' });
             }
         }
     };
