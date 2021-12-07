@@ -58,5 +58,5 @@ raw JSOn
 
 ## URL Producción
 ```code
-https://api-color.herokuapp.com/
+https://api-colores.herokuapp.com/
 ```
