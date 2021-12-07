@@ -24,6 +24,7 @@ npm install
 ## Ejecución
 
 ```bash
+npm run postinstall
 npm run start
 ```
 ## Ejemplo de uso
